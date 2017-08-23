@@ -5,7 +5,7 @@ public class AndOr {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String str = null;
-		if (str == null || str.equals("123456")) {
+		if (str == null || str.equals("123")) {
 			System.out.println("null");
 			System.out.println(Long.MAX_VALUE);
 		}
