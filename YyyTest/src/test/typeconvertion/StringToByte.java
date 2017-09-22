@@ -16,20 +16,29 @@ public class StringToByte {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//part 1
-		/*String str = "2a-33-a0-22-66-cc-11";
+		String str = "2a-33-a0-22-66-cc-11";
 		String[] addresss = str.split("-");
+		String longString = "风雨不欲阻，11111111111111111建立一个UDP的Socket，这里使用"
+				+ "的指令是AT+NSOCR=DGRAM,17,5681,1，第一个参数这"
+				;
 		String s = "";
+		byte longbyte[] = longString.getBytes();
 		byte[] b = new byte[7];
 		for (int i = 0; i < addresss.length; i++) {
             //System.out.println(addresss[i].getBytes()[0] + " - " +addresss[i].getBytes()[1]);
             //int j = hexString.charAt(addresss[i].getBytes()[0]) * 10;
             //int k = hexString.charAt(addresss[i].getBytes()[1]);
-            System.out.print((hexString.indexOf(addresss[i].toUpperCase().charAt(0)) * 16)
-            		+ hexString.indexOf(addresss[i].toUpperCase().charAt(1)) + " ");
+            //System.out.print((hexString.indexOf(addresss[i].toUpperCase().charAt(0)) * 16) + hexString.indexOf(addresss[i].toUpperCase().charAt(1)) + " ");
+            
             b[i] = (byte) ((hexString.indexOf(addresss[i].charAt(0)) * 16)
             		+ hexString.indexOf(addresss[i].charAt(1)));
             //42 51 160 34 102 204 17 
-        }*/
+        }
+		
+		System.out.println(longbyte.length);
+		for (int j= 0; j<longbyte.length; j++) {
+			System.out.print(longbyte[j] & 0x0f);
+		}
 		
 		//part 2
 		/*String str = "2a33a02266cc11";
@@ -49,11 +58,11 @@ public class StringToByte {
 		for (int i = 0; i < address.length; i = i+2) {
 			System.out.println(String.valueOf(address[i]) + String.valueOf(address[i+1]) + "   " + i/2);
         }*/
-		//System.out.println(SHA("apple"));
-		System.out.println(crc32("test"));
+		//System.out.println(SHA("test"));
+		//System.out.println(crc32("test"));
 		
 	}
-	/*public static String SHA(String decript) {
+	public static String SHA(String decript) {
 		try {
 			MessageDigest digest = java.security.MessageDigest
 					.getInstance("SHA");
@@ -75,7 +84,8 @@ public class StringToByte {
 			e.printStackTrace();
 		}
 		return "";
-	}*/
+	}
+	
 	public static long crc32(String decript) {
         CRC32 crc32 = new CRC32();
         crc32.update(decript.getBytes());
